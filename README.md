@@ -62,9 +62,9 @@ Input:
   -f PCAPFILE     PCAP file to read from
 
 Output format:
-  --out-list      Prints the RTMP data as list (Default)
+  --out-list      Prints the RTMP data as list
   --out-m3u       Prints the RTMP data as m3u entry
-  --out-rtmpdump  Prints the RTMP data in the rtmpdump format
+  --out-rtmpdump  Prints the RTMP data in the rtmpdump format (Default)
 
 Additional options:
   -p PORT         RTMP port (Default: sniffs on all ports)

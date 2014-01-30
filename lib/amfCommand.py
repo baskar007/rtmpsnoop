@@ -187,6 +187,6 @@ class amfCommands():
         print
 
     def printDefault(self):
-        self.printList()
+        self.printRTMPDump()
 
 

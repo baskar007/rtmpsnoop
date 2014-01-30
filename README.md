@@ -49,7 +49,7 @@ The syntax is quite simple:
 ```
 $python rtmpSnoop.py -h
 usage: rtmpSnoop.py [-h] [-i DEVICE | -f PCAPFILE]
-                    [--out-list | --out-m3u | --out-rtmpdump] [-p PORT]
+                    [--out-list ][ --out-m3u ][ --out-rtmpdump] [-p PORT]
                     [--one] [--quiet] [--debug]
 
 rtmpSnoop lets you to grab the RTMP properties from live or dumped streams.

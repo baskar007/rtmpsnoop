@@ -92,18 +92,23 @@ class amfCommands():
         logger.info("*************************************")
 
     def printOut(self, mode):
-        if mode == "m3u":
-            self.printM3Uentry()
-        elif mode == "rtmpdump":
-            self.printRTMPDump()
-        else:
+        self.parse()
+        if not mode:
             self.printDefault()
+        else:
+            if 'm3u' in mode:
+                self.printM3Uentry()
+
+            if 'rtmpdump' in mode:
+                self.printRTMPDump()
+
+            if 'list' in mode:
+                self.printList()
 
     """
     Prints the stream properties using the standard list format """
-    def printDefault(self):
+    def printList(self):
     
-        self.parse()
         self.printBar()
 
         for prop in ["url", "app", "pageUrl", "swfUrl", "tcUrl", "playPath", "flashVer", "extra"]:
@@ -111,12 +116,12 @@ class amfCommands():
                 print "%s: %s" % (prop, self.RTMP[prop])
 
         self.printBar()
+        print
 
     """
     Prints out the RTMP properties using the m3u format """
     def printM3Uentry(self):
 
-        self.parse()
         self.printBar()
 
         print "#EXTINF:0,1, Stream"
@@ -134,12 +139,12 @@ class amfCommands():
 
         print line
         self.printBar()
+        print
 
     """
     Prints out the RTMP properties using the rtmpdump format """
     def printRTMPDump(self):
 
-        self.parse()
         self.printBar()
 
         line = "rtmpdump -r '%s' " % self.RTMP["url"]
@@ -179,3 +184,9 @@ class amfCommands():
         
         print line
         self.printBar()
+        print
+
+    def printDefault(self):
+        self.printList()
+
+

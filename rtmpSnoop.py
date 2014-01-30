@@ -106,10 +106,10 @@ def setupArgParser():
     group.add_argument("-f", action="store", dest="pcapfile", help="PCAP file to read from")
 
     group_output = parser.add_argument_group("Output format")
-    group = group_output.add_mutually_exclusive_group()
-    group.add_argument("--out-list", action='store_const', const="list", dest="out_mode", help="Prints the RTMP data as list (Default)")
-    group.add_argument("--out-m3u", action='store_const', const="m3u", dest="out_mode", help="Prints the RTMP data as m3u entry")
-    group.add_argument("--out-rtmpdump", action='store_const', const="rtmpdump", dest="out_mode", help="Prints the RTMP data in the rtmpdump format")
+    group = group_output
+    group.add_argument("--out-list", action='append_const', const="list", dest="out_mode", help="Prints the RTMP data as list (Default)")
+    group.add_argument("--out-m3u", action='append_const', const="m3u", dest="out_mode", help="Prints the RTMP data as m3u entry")
+    group.add_argument("--out-rtmpdump", action='append_const', const="rtmpdump", dest="out_mode", help="Prints the RTMP data in the rtmpdump format")
 
     group_input = parser.add_argument_group("Additional options")
     group_input.add_argument("-p", action="store", dest="port", default=0, type=int, help="RTMP port (Default: sniffs on all ports)")
@@ -165,6 +165,4 @@ if __name__ == "__main__":
             logger.error("Error opening device for sniffing: %s" % e)
             logger.info("Are you root?")
             sys.exit(1)
-    
-
 

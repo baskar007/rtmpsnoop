@@ -24,7 +24,7 @@ import os
 import logging
 logging.getLogger("scapy.runtime").setLevel(logging.ERROR)
 from scapy.all import *
-from rtmpsnoop_lib.Stream import Stream
+from rtmpsnoop_lib.Stream import *
 from rtmpsnoop_lib.rtmpParser import rtmpParser
 from rtmpsnoop_lib.amfCommand import amfCommand, amfCommands
 from rtmpsnoop_lib.Logger import logger

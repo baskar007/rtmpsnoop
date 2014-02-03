@@ -162,6 +162,7 @@ if __name__ == "__main__":
         try:
             sniff(prn = PacketHandler)
         except socket.error as e:
+            #TODO: privilege escalation if it is possible
             logger.error("Error opening device for sniffing: %s" % e)
             logger.info("Are you root?")
             sys.exit(1)

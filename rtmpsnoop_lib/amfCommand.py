@@ -21,7 +21,7 @@
 # 02110-1301 USA
 #
 import os
-from lib.Logger import logger
+from rtmpsnoop_lib.Logger import logger
 
 class amfCommand():
 

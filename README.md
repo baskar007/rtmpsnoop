@@ -1,11 +1,15 @@
 # rtmpsnoop - The RTMP sniffer!
 
-## difference between Andrea Fabrizi rtmpSnoop
+## Difference between Andrea Fabrizi rtmpSnoop
 
 * Supports more than one output format at the same time
 * Default output is rtmpdump
 * Small changes in rtmpdump format
 * lib/ was changed to rtmpsnoop_lib/ so you can put that in your python library folder.
+
+## Original repository
+
+Original for can be found on https://github.com/andreafabrizi/rtmpSnoop and I will try to stay in sync with original upstream as long as it will be possible for me to maintain. At this point there is all features and bugfixes as is in original upstream.
 
 **rtmpsnoop** lets you to sniff RTMP streams from live TV, online channels and straming services and dump the RTMP properties in many formats.
 You can analyse both live and dumped streams.

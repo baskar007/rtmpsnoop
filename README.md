@@ -1,6 +1,13 @@
-# rtmpSnoop - The RTMP sniffer!
+# rtmpsnoop - The RTMP sniffer!
 
-**rtmpSnoop** lets you to sniff RTMP streams from live TV, online channels and straming services and dump the RTMP properties in many formats.
+## difference between Andrea Fabrizi rtmpSnoop
+
+* Supports more than one output format at the same time
+* Default output is rtmpdump
+* Small changes in rtmpdump format
+* lib/ was changed to rtmpsnoop_lib/ so you can put that in your python library folder.
+
+**rtmpsnoop** lets you to sniff RTMP streams from live TV, online channels and straming services and dump the RTMP properties in many formats.
 You can analyse both live and dumped streams.
 
 ## Features
@@ -12,7 +19,6 @@ You can analyse both live and dumped streams.
 
 ## Requirements
 
-**rtmpSnoop** works both on Windows and Unix.  
 To run it you need only python (at least 2.7 version) and the scapy module. 
 
 **Linux Installation**  
@@ -77,49 +83,15 @@ Additional options:
 
 Sniffing on all interfaces, without filters:
 ```
-sudo python rtmpSnoop.py
+sudo python rtmpSnoop
 ```
 
 Sniffing on eth0, and looking for RTMP streams on port 1935 only:
 ```
-sudo python rtmpSnoop.py -i eth0 -p 1935
+sudo python rtmpSnoop -i eth0 -p 1935
 ```
 
 Reading streams from PCAP file:
 ```
-python rtmpSnoop.py -f dump/tv.pcap
+python rtmpSnoop -f dump/tv.pcap
 ```
-
-## Output formats
-
-Default list:
-```
-url: rtmp://192.168.1.1/live/channel?id=123
-app: live
-pageUrl: http://www.test.com/embedded/channel/1/500/380
-swfUrl: http://www.test.eu/static/player.swf
-tcUrl: rtmp://192.168.1.1/live
-playPath: channel?id=123
-flashVer: LNX 11,7,700,203
-extra: S:OK 
-```
-
-m3u entry:
-```
-#EXTINF:0,1, Stream
-rtmp://192.168.1.1/live/channel?id=12345 app=live pageUrl=http://www.test.eu/embedded/channel/1/500/380 
-swfUrl=http://www.test.eu/static/player.swf tcUrl=rtmp://192.168.1.1/live playPath=channel?id=123 conn=S:OK live=1
-```
-
-rtmpdump syntax:
-```
-rtmpdump -r 'rtmp://192.168.1.1/live/channel?id=12345' -a 'live' -t 'rtmp://192.168.1.1/live' 
--y 'channel?id=12345' -W 'http://www.test.eu/scripts/player.swf' -p 'http://www.test.eu/embedded/channel/1/500/380' 
--f 'LNX 11,7,700,203' -C S:OK  --live -o stream.flv
-```
-
-## Donations
-
- If you want to support this project, please consider donating:
- * PayPal: andrea.fabrizi@gmail.com
- * BTC: 1JHCGAMpKqUwBjcT3Kno9Wd5z16K6WKPqG

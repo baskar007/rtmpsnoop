@@ -144,7 +144,8 @@ if __name__ == "__main__":
     #Not sniffing, reading from dump file
     if args.pcapfile:
         logger.info("Reading packets from dump file '%s'..." % args.pcapfile)
-        sniff(offline=args.pcapfile, filter="tcp", prn = PacketHandler)
+	while True:
+        	sniff(offline=args.pcapfile, filter="tcp", prn = PacketHandler)
 
     #Sniffing on the specified device
     elif args.device:

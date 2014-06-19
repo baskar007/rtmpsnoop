@@ -137,7 +137,8 @@ if __name__ == "__main__":
     quit_first = args.quit_first
 
     logger.info("rtmpSnoop v%s - The RTMP Sniffer!" % VERSION)
-    logger.info("Andrea Fabrizi - andrea.fabrizi@gmail.com\n")
+    logger.info("Andrea Fabrizi - andrea.fabrizi@gmail.com")
+    logger.info("Andej Manduch - amanduch@yahoo.com\n")
 
     streams = dict()
 
